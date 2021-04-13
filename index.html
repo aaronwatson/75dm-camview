@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>75 Deer Meadow Ct</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        html { font-size: 22px; }
+        body { padding: 1rem; }
+
+        .header {
+          margin: auto;
+            display: block;
+            width: 80%;
+            text-align: center;
+            color: white;
+            padding: 10px 0;
+            height: 8%;
+            font-family: monospace;
+        }
+
+        .image-grid {
+            max-width: 100%;
+            margin: 0 auto;
+            display: grid;
+            grid-gap: 1rem;
+        }
+
+        .img {
+            max-width: 100%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .img:hover {opacity: 0.7;}
+
+        @media (orientation: landscape) { 
+            .image-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (orientation: portrait) { 
+            .image-grid { grid-template-columns: repeat(1, 1fr); }
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            padding-top: 5px; /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+        }
+
+        /* Modal Content (Image) */
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 95%;
+            /* height: 95%; */
+        }
+
+        /* Caption of Modal Image (Image Text) - Same Width as the Image */
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: 150px;
+        }
+
+        /* Add Animation - Zoom in the Modal */
+        .modal-content, #caption {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)}
+            to {transform:scale(1)}
+        }
+
+        /* The Close Button */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+  <body style="background-color: black;">
+    <div class="header">75 Deer Meadow Ct</div>
+    <div class="image-grid">
+        <img id="Front" class="img" src="http://75dm.ddns.net:34788/snap.jpeg?rand=0" alt="Front">
+        <img id="Kitchen" class="img" src="http://75dm.ddns.net:34787/snap.jpeg?rand=0" alt="Kitchen">
+        <img id="Basement" class="img" src="http://75dm.ddns.net:34786/snap.jpeg?rand=0" alt="Basement">
+        <img id="Back" class="img" src="" alt="Back">
+    </div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- The Close Button -->
+        <span class="close">&times;</span>
+    
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01">
+    </div>
+  </body>
+  <script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+    
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var modalImg = document.getElementById("img01");
+    var img = document.getElementById("Front");
+    img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+
+    var img = document.getElementById("Kitchen");
+    img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+
+    var img = document.getElementById("Basement");
+    img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // Reload images every 10 seconds
+    setInterval(function() {
+        var image = document.getElementById('Front');
+        image.src = image.src.substring(0, image.src.indexOf('=') + 1) + Math.random();
+        var image = document.getElementById('Kitchen');
+        image.src = image.src.substring(0, image.src.indexOf('=') + 1) + Math.random();
+        var image = document.getElementById('Basement');
+        image.src = image.src.substring(0, image.src.indexOf('=') + 1) + Math.random();
+        var image = document.getElementById('img01');
+        image.src = image.src.substring(0, image.src.indexOf('=') + 1) + Math.random();
+    }, 5000);
+  </script>  
+</html>
