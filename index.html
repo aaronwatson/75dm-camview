@@ -113,7 +113,7 @@
         <img id="Front" class="img" src="https://f.75dm.wtsnfmly.com/snap.jpeg?rand=0" alt="Front">
         <img id="Kitchen" class="img" src="https://k.75dm.wtsnfmly.com/snap.jpeg?rand=0" alt="Kitchen">
         <img id="Basement" class="img" src="https://b.75dm.wtsnfmly.com/snap.jpeg?rand=0" alt="Basement">
-        <img id="Back" class="img" src="" alt="Back">
+        <img id="Rear" class="img" src="https://r.75dm.wtsnfmly.com/snap.jpeg?rand=0" alt="Rear">
     </div>
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -149,6 +149,12 @@
       modalImg.src = this.src;
     }
 
+    var img = document.getElementById("Rear");
+    img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+    
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
     
@@ -165,8 +171,8 @@
         image.src = image.src.substring(0, image.src.indexOf('=') + 1) + Math.random();
         var image = document.getElementById('Basement');
         image.src = image.src.substring(0, image.src.indexOf('=') + 1) + Math.random();
-        var image = document.getElementById('img01');
+        var image = document.getElementById('Rear');
         image.src = image.src.substring(0, image.src.indexOf('=') + 1) + Math.random();
-    }, 5000);
+    }, 10000);
   </script>  
 </html>
